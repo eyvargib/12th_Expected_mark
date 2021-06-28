@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>12th mark calculator</title>
+</head>
+<body> 
+  <form name="formcalc"> 
+        <h1>To Know your 11 th mark <a href="http://dge2.tn.nic.in/hpproll.aspx">Click here</a></h1>
+        <h1> Enter Your 10 th best 3 marks</h1>
+
+        subject 1: <input type="text" name="s10num1">
+        <br> 
+        <br>
+        subject 2: <input type="text" name="s10num2">
+        <br>
+        <br>
+        subject 3: <input type="text" name="s10num3">
+        <br>
+        <br>
+        <h1> Enter Your 11 th theory marks(without practical marks)</h1>
+        Language: <input type="text" name="s11t">
+        <br> 
+        <br>
+        English : <input type="text" name="s11e">
+        <br>
+        <br>
+        <input type="radio" id="html" name="rb" value="0">
+        <label> BIO-MATH </label>
+        <br>
+        <br>
+        Physics : <input type="text" name="s11p">
+        <br>
+        <br>
+        Chemistry : <input type="text" name="s11c">
+        <br>
+        <br>
+        Biology : <input type="text" name="s11b">
+        <br>
+        <br>
+        Math : <input type="text" name="s11m">
+        <br>
+        <br>
+        <input type="radio" id="html" name="rb" value="1">
+        <label> Commerce_Group </label>
+        <br>
+        <br>
+        Economics : <input type="text" name="s11ec">
+        <br>
+        <br>
+        Commerce : <input type="text" name="s11co">
+        <br>
+        <br>
+        Accountancy : <input type="text" name="s11ac">
+        <br>
+        <br>
+        Computer_Application : <input type="text" name="s11ca">
+        <br>
+        <br>
+
+        <input type="button" value="Calculate" onClick="sumValues()"> 
+        <br>
+        <br>
+<p> Your result is calculated based on <i>12th practical mark as 30</i></p>
+<br>
+<p> <i>It is approximate mark only</i></p>
+<br>
+<br>
+10th_50%_Mark : <input type="text" name="txtval10">
+<br>
+<br>
+Language : <input type="text" name="a11t">
+<br>
+<br>
+English : <input type="text" name="a11e">
+<br>
+<br>
+Physics : <input type="text" name="a11p">
+<br>
+<br>
+Chemistry : <input type="text" name="a11c">
+<br>
+<br>
+Biology : <input type="text" name="a11b">
+<br>
+<br>
+Mathematics : <input type="text" name="a11m">
+<br>
+<br>
+Economics : <input type="text" name="a11ec">
+<br>
+<br>
+Commerce : <input type="text" name="a11co">
+<br>
+<br>
+Accountancy : <input type="text" name="a11ac">
+<br>
+<br>
+Computer_Application : <input type="text" name="a11ca">
+<br>
+<br>
+Expected 12th mark : <input type="text" name="txtres">
+<br>
+<br>
+Group : <input type="text" name="rb2">
+<br>
+<br>
+
+</form> 
+<script type="text/javascript" >
+function sumValues() 
+{
+var num1, num2,num3,val,val10,pract=30,res,check;
+var tamil,english;
+var vtamil,venglish;
+var physics=0,chemistry=0,math=0,biology=0;
+var vphysics=0,vchemistry=0,vmath=0,vbiology=0;
+var rtamil,renglish,rphysics,rchemistry,rmath,rbiology;
+var economics=0,commerce=0,accountancy=0,com_app=0;
+var veconomics=0,vcommerce=0,vaccountancy=0,vcom_app=0;
+var reconomics=0,rcommerce=0,raccountancy=0,rcom_app=0;
+ num1=Number(document.formcalc.s10num1.value); 
+ num2=Number(document.formcalc.s10num2.value);
+ num3=Number(document.formcalc.s10num3.value);  
+ tamil=Number(document.formcalc.s11t.value);  
+ english=Number(document.formcalc.s11e.value);
+ physics=Number(document.formcalc.s11p.value);
+ chemistry=Number(document.formcalc.s11c.value);
+ math=Number(document.formcalc.s11m.value);
+ biology=Number(document.formcalc.s11b.value);
+ economics=Number(document.formcalc.s11ec.value);
+ commerce=Number(document.formcalc.s11co.value);
+ accountancy=Number(document.formcalc.s11ac.value);
+ com_app=Number(document.formcalc.s11ca.value);
+ check=Number(document.formcalc.rb.value);
+val10=Math.round(((num1+num2+num3)/3)*0.5);
+vtamil=Math.round(tamil*(20/90));
+rtamil=vtamil+val10+pract;
+venglish=Math.round(english*(20/90));
+renglish=venglish+val10+pract;
+if (check == 0){
+   vphysics =Math.round(physics*(20/70));
+   vchemistry=Math.round(chemistry*(20/70));
+   vmath=Math.round(math*(20/90));
+   vbiology=Math.round(biology*(20/70));
+rphysics=vphysics+val10+pract;
+rchemistry=vchemistry+val10+pract;
+rmath=vmath+val10+pract;
+rbiology=vbiology+val10+pract;
+check="Bio-Math";
+res=rtamil+renglish+rphysics+rchemistry+rmath+rbiology;
+}
+else{
+    veconomics=Math.round(economicss*(20/90));
+    vcommerce=Math.round(commerce*(20/90));
+    vaccountancy=Math.round(accountancy*(20/90));
+    vcom_app=Math.round(com_app*(20/70));
+reconomics=(economic)+val10+pract;
+rcommerce=vcommerce+val10+pract;
+raccountancy=vaccountancy+val10+pract;
+rcom_app=vcom_app+val10+pract;
+check="Commerce";
+res=rtamil+renglish+reconomics+rcommerce+raccountancy+rcom_app;
+}
+document.formcalc.txtval10.value=val10;
+document.formcalc.a11t.value=vtamil;
+document.formcalc.a11e.value=venglish;
+document.formcalc.a11p.value=vphysics;
+document.formcalc.a11c.value=vchemistry;
+document.formcalc.a11b.value=vbiology;
+document.formcalc.a11m.value=vmath;
+document.formcalc.a11ec.value=veconomics;
+document.formcalc.a11co.value=vcommerce;
+document.formcalc.a11ac.value=vaccountancy;
+document.formcalc.a11ca.value=vcom_app;
+document.formcalc.txtres.value=res;
+document.formcalc.rb2.value=check;
+}
+</script> 
+</body>
+</html> 
